@@ -24,7 +24,7 @@ public class Population {
 		HashMap<Integer, Ville> listeVilles = vf.getListeVilles();
 		int[][] population = new int[nbMembres][permutationBase.length];
 		for(int i=0;i<nbMembres;i++){
-			double[][] matrix = calcul.matriceCout(listeVilles);
+			int[][] matrix = calcul.matriceCout(listeVilles);
 			population[i] = Heuristique.heursitiquePlusProcheVoisin(matrix,i);
 		}
 		if(!isPopulationSansDoublon(population)){
@@ -153,7 +153,8 @@ public class Population {
 	public static int[] mutationEnfant(int[] enfant){
 		int indice1 = ThreadLocalRandom.current().nextInt(enfant.length);
 		int indice2 = ThreadLocalRandom.current().nextInt(enfant.length);
-		return Swap.swap(enfant, indice1, indice2);
+		
+		return null;
 	}
 
 	public void memetique(){

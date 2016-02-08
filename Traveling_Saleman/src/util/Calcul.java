@@ -35,8 +35,8 @@ public class Calcul {
 	 * @param listeVilles
 	 * @return matrice
 	 */
-	public double[][] matriceCout(HashMap<Integer,Ville> listeVilles){
-		double[][] matrice_Final = new double[100][100];
+	public int[][] matriceCout(HashMap<Integer,Ville> listeVilles){
+		int[][] matrice_Final = new int[100][100];
 		double xa, ya, xb, yb;
 		for(int i=0 ; i<100 ; i++){
 			xa = listeVilles.get(i).getxCoordonnee();
@@ -44,7 +44,7 @@ public class Calcul {
 			for(int j=0; j<100; j++){
 				xb = listeVilles.get(j).getxCoordonnee();
 				yb = listeVilles.get(j).getyCoordonnee();
-				matrice_Final[i][j] = Math.round(distanceEuclidienne(xb,xa,yb,ya)) ;
+				matrice_Final[i][j] = (int) Math.round(distanceEuclidienne(xb,xa,yb,ya)) ;
 			}
 		}
 		return matrice_Final;
@@ -57,10 +57,10 @@ public class Calcul {
 	 * @param matrice
 	 * @return resultat
 	 */
-	public double evaluation(int[]tableauPermutation, double[][] matrice){
+	public int evaluation(int[]tableauPermutation, int[][] matrice){
 		VilleFactory vf = VilleFactory.getINSTANCE();
 		HashMap<Integer,Ville> listeVille = vf.getListeVilles();
-		double resultat = 0.0;
+		int resultat = 0;
 		for(int i=0; i<tableauPermutation.length; i++){
 			int j = tableauPermutation[i];
 			int g ;
@@ -77,7 +77,7 @@ public class Calcul {
 
 			}
 		}
-		return resultat;
+		return  resultat;
 	}
 
 	/**
