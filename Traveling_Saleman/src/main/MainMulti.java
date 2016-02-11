@@ -44,6 +44,8 @@ public class MainMulti {
 			ensemble[k] = calculMulti.evaluation(listeVillesShuffled,matrix1,matrix2,vfm1);
 			//System.out.println(testEvaluation[0] +" " + testEvaluation[1]);	
 		}
+		afficher(ensemble);
+		System.out.println("--------------------------");
 		int[][] ensembleFiltre = Filtre.offLine(ensemble);
 		afficher(ensembleFiltre);
 	}
