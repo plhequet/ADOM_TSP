@@ -7,20 +7,25 @@ import java.util.concurrent.ThreadLocalRandom;
 import data.Ville;
 import data.VilleFactory;
 
+/**
+*
+* @author hequet
+*
+*/
 public class Calcul {
 
 
 	/**
-	 * Méthode qui calcule la distanceEuclidienne selon les coordonnées fournies
-	 * 
-	 * Rappel de formule de la distance Euclidienne :  racine((xb-xa)^2+(yb-ya)^2) 
-	 * 
-	 * @param xb
-	 * @param xa
-	 * @param yb
-	 * @param ya
-	 * @return distance
-	 */
+	* Méthode qui calcule la distanceEuclidienne selon les coordonnées fournies
+	*
+	* Rappel de formule de la distance Euclidienne :  racine((xb-xa)^2+(yb-ya)^2)
+	*
+	* @param xb
+	* @param xa
+	* @param yb
+	* @param ya
+	* @return distance
+	*/
 	private double distanceEuclidienne(double xb, double xa, double yb, double ya){
 		double resultat_parenthese_gauche = Math.pow((xb-xa), 2);
 		double resultat_parenthese_droite = Math.pow((yb-ya), 2);
@@ -29,12 +34,11 @@ public class Calcul {
 	}
 
 	/**
-	 * 
-	 * Méthode qui génère la matrice de distance entre les villes.
-	 * 
-	 * @param listeVilles
-	 * @return matrice
-	 */
+	* Méthode qui génère la matrice de distance entre les villes.
+	*
+	* @param listeVilles
+	* @return matrice
+	*/
 	public int[][] matriceCout(HashMap<Integer,Ville> listeVilles){
 		int[][] matrice_Final = new int[100][100];
 		double xa, ya, xb, yb;
@@ -51,12 +55,12 @@ public class Calcul {
 	}
 
 	/**
-	 * Méthode qui évalue la distance total du parcours passé en utilisant les valeurs de la matrice des distances
-	 * 
-	 * @param tableauPermutation
-	 * @param matrice
-	 * @return resultat
-	 */
+	* Méthode qui évalue la distance total du parcours passé en utilisant les valeurs de la matrice des distances
+	*
+	* @param tableauPermutation
+	* @param matrice
+	* @return distance totale
+	*/
 	public int evaluation(int[]tableauPermutation, int[][] matrice){
 		VilleFactory vf = VilleFactory.getINSTANCE();
 		HashMap<Integer,Ville> listeVille = vf.getListeVilles();
@@ -81,10 +85,10 @@ public class Calcul {
 	}
 
 	/**
-	 * Méthode qui mélange un tableau de valeur passé en paramètre
-	 * 
-	 * @param ar
-	 */
+	* Méthode qui mélange un tableau de valeur passé en paramètre
+	*
+	* @param ar
+	*/
 	public void shuffleArray(int[] ar)
 	{
 		Random rnd = ThreadLocalRandom.current();
@@ -97,15 +101,14 @@ public class Calcul {
 			ar[i] = a;
 		}
 	}
-	
+
 	/**
-	 * 
-	 * Fonction qui regarde si une ville est deja présente dans le tableau
-	 * 
-	 * @param path
-	 * @param city
-	 * @return true or false
-	 */
+	* Fonction qui regarde si une ville est deja présente dans le tableau
+	*
+	* @param path
+	* @param city
+	* @return true or false
+	*/
 	public static boolean isCityInPath(int[] path, int city) {
 		for(int i = 0; i < path.length; i++) {
 			if(path[i] == city) {
@@ -116,46 +119,43 @@ public class Calcul {
 	}
 
 	/**
-	 * 
-	 * Fonction qui compare deux tableaux et retourne vrai s'ils sont les mêmes
-	 * 
-	 * @param path1
-	 * @param path2
-	 * @return true or false
-	 */
+	* Fonction qui compare deux tableaux et retourne vrai s'ils sont les mêmes
+	*
+	* @param path1
+	* @param path2
+	* @return true or false
+	*/
 	public static boolean isSamePath(int[] path1, int[] path2) {
 		boolean b = true;
 		for (int i = 0; i < path2.length; i++) {
 			if (path2[i] != path1[i]) {
-				b = false;    
-			}                 
+				b = false;
+			}
 		}
 		return b;
 	}
 
 	/**
-	 * 
-	 * Fonction qui retourne la prochaine ville
-	 * 
-	 * @param path
-	 * @param srcIndex
-	 * @return ville
-	 */
+	* Fonction qui retourne la prochaine ville
+	*
+	* @param path
+	* @param srcIndex
+	* @return ville
+	*/
 	public int getDestination(int[] path, int srcIndex) {
 		if(srcIndex + 1 == path.length) {
 			return path[0];
 		}
 		return path[srcIndex + 1];
 	}
-	
+
 	/**
-	 * 
-	 * Fonction qui retourne le numéro de la prochaine ville
-	 * 
-	 * @param path
-	 * @param srcIndex
-	 * @return numéro de la ville
-	 */
+	* Fonction qui retourne le numéro de la prochaine ville
+	*
+	* @param path
+	* @param srcIndex
+	* @return numéro de la ville
+	*/
 	public int getIndexOfDestination(int[] path, int srcIndex) {
 		if(srcIndex + 1 == path.length) {
 			return 0;

@@ -1,0 +1,20 @@
+Q1.
+Représentation:
+	Tableau de permutations des villes
+
+Qualité:
+	Déviation par rapport au meilleur résultat connu
+	
+Taille de l'espace de recherche:
+	(n-1)!/2
+	
+
+	
+Heuristic swap next 26750.0
+Heuristic swap best 26847.0
+Heuristic 2_opt next 25512.0
+Heuristic 2_opt best 24404.0
+Random swap next 40565.86666666667
+Random swap best 44597.566666666666
+Random 2_opt next 24153.566666666666
+Random 2_opt best 24233.0

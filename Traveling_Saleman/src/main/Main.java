@@ -11,6 +11,11 @@ import util.Reader;
 import util.Swap;
 import util.TwoOpt;
 
+/**
+ *
+ * @author hequet
+ *
+ */
 public class Main {
 
 	public static void main(String[] args) {
@@ -50,8 +55,8 @@ public class Main {
 //		double calculeeeeee = total/resultat[1].length;
 //		System.out.println("---- " + calculeeeeee);
 //		System.out.println("---- ---- " + (calculeeeeee)/21282);
-		
-		
+
+
 //		Swap sw = new Swap(matrix);
 //		int total = 0;
 //		for(int j=0;j<resultat[1].length;j++){
@@ -68,14 +73,14 @@ public class Main {
 	}
 	/**
 	 * Valeur qui appele la fonction du type d'initialisation voulue, mouvement voulu et le type de voisinage choisi sur un tableau de permutation donné.
-	 * 
+	 *
 	 * @param intialisation (0 -> aleatoire, 1 -> heuristique constructive)
 	 * @param mouvement (0 -> meilleur voisin améliorant, 1 -> premier voisin améliorant)
 	 * @param voisinage (0 -> swap, 1 -> twoopt)
 	 * @param tableauPermutationDeBase
 	 * @return
 	 */
-	public double choix(int intialisation, int mouvement, int voisinage, int[] tableauPermutationDeBase, int[][]matrice){
+	public double hillClimbing(int intialisation, int mouvement, int voisinage, int[] tableauPermutationDeBase, int[][]matrice){
 		double result=0.0;
 		int[] path = new int[tableauPermutationDeBase.length];
 		Calcul calcul = new Calcul();

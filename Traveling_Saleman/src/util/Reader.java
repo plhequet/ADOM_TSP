@@ -29,7 +29,7 @@ public class Reader {
 		//Traitement des lignes
 		for(String correctLine : listeLine){
 			int idTmp = Integer.parseInt(correctLine.split(" ")[0]);
-			double xTmp = Double.parseDouble(correctLine.split(" ")[1]);	
+			double xTmp = Double.parseDouble(correctLine.split(" ")[1]);
 			double yTmp = Double.parseDouble(correctLine.split(" ")[2]);
 			Ville villeTmp = new Ville(idTmp-1,xTmp,yTmp);
 			listeVilles.put(idTmp-1,villeTmp);
